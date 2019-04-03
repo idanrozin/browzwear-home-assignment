@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-import './App.css';
 import MainTable from './MainTable';
+import MapContainer from './MapContainer';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <MainTable/>
+        <MapContainer/>
       </div>
     );
   }
