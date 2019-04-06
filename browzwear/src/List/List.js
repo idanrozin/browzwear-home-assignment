@@ -12,14 +12,17 @@ class List extends Component{
     }
 
     componentWillReceiveProps(nextProps) {
+        //in order to initialize the default pick
         this.setState({key: nextProps.items[0].Id})
     }
 
     handleClickItem = (item) => {
+        //this will change the current selected item
         this.setState({key: item.Id});
     }
 
     render() {
+        //filter the list from duplications
         const filteredArr = this.props.items.reduce((acc, current) => {
             const x = acc.find(item => item[this.props.value]  === current[this.props.value] );
             if (!x) {
@@ -51,7 +54,9 @@ class List extends Component{
                     }
                     </div>
                 </div>
-                {this.props.renderSubComponent(this.state.key, this.props.items)}
+                {/* inside this fragment - append the renderSubComponent method to the props so we can implement the behaviour
+                 outside the List component */}
+                {this.props.renderSubComponent(this.state.key, filteredArr)}
             </>
         );
     }
