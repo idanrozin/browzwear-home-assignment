@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    height: 500px;
+    width: 1000px;
+    border: 1px solid black;
+    margin: auto;
+}
+
+.map-container {
+    height: 100%;
+    width: 400px;
+}
+
+.map-title {
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid black;
+    box-sizing: border-box;
+}
+
+.map-data { 
+    position: relative;
+    height: calc(100% - 50px);
+}
+
+.map-data > div {
+    height: 100%;
+    width: 100%;
+}

@@ -1,36 +1,76 @@
-import React, {Component} from 'react'
-import axios from 'axios'
-import clients from './data/clients.json'
+import React, {Component} from 'react';
+import axios from 'axios';
+import List from './List/List';
+import './MainTable.css';
+import MapContainer from './MapContainer';
+
 class MainTable extends Component{
-    componentWillMount() {
-       //console.log(clients);
-       this.setState({clientList:clients.Customers})
-    }
-    state = {
-        clientList : []
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            clientList: []
+        }
     }
 
-    listCountries(){
-
+    componentDidMount() {
+       axios.get('clients2.json').then(client => {
+           console.log(client);
+           console.log(client.data.Customers);
+           this.setState({clientList: client.data.Customers});
+       })
     }
+   
+    renderCountriesList = (currentList) => {
+        return (
+                <List    
+                items={currentList} 
+                value={'Country'}   
+                title={'Countries'}
+                renderSubComponent={this.renderCitiesList}
+            />
+        );
+    }
+
+    renderCitiesList = (selectedKey, currentList) => {
+        const selectedCountry = currentList.find(item => item.Id === selectedKey);
+        console.log('selectedCountry ? ', selectedCountry);
+
+        return (
+            <List    
+                items={this.state.clientList} 
+                value={'City'} 
+                title={'Cities'}
+                renderSubComponent={this.renderCompaniesList}
+            />
+        );
+    }
+
+    renderCompaniesList = () => (
+        <List    
+            items={this.state.clientList} 
+            value={'CompanyName'} 
+            title={'Companies'}
+            renderSubComponent={this.renderMap}
+        />
+    );
+
+    renderMap = () => (
+        <div className='map-container'>
+            <div className='map-title'>Map</div>
+            <div className='map-data'>
+                <MapContainer long= {3.14}/>
+            </div>
+        </div>
+    )
 
     render(){
-        const countries = this.state.clientList;
-        console.log(this.state.clientList);
-        
-       const cList =  countries.map( country => {
-            return (
-               <tr>
-                {country.Country}
-                    </tr>
-                    
-                  )
-        }
+       console.log('render ? ', this.state.clientList);
 
-        )
-        // const cList = [];
-       return cList;  
+       return (
+        <div className='container'>
+            {this.renderCountriesList(this.state.clientList)}
+        </div>
+       );
     }
 }
 

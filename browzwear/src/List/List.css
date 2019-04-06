@@ -1,0 +1,31 @@
+.list-container {
+    width: 200px;
+    height: 100%;
+}
+.title {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-bottom: 1px solid black;
+    box-sizing: border-box;
+}
+.data-container {
+    height: calc(100% - 50px);
+    overflow-y: scroll;
+    border: 1px solid red;
+    box-sizing: border-box;
+}
+.item {
+    height: 50px;
+    padding: 0 10px;
+    line-height: 50px;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.selected {
+    background: blue;
+    border-radius: 10px;
+    color: white;
+}
