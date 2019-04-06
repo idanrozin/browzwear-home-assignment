@@ -6,7 +6,7 @@
     height: 50px;
     line-height: 50px;
     text-align: center;
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid black;
     box-sizing: border-box;
 }
 .data-container {
