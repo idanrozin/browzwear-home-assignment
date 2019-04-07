@@ -3,9 +3,7 @@ import './List.css';
 
 class List extends Component{
     constructor(props) {
-        super(props);
-        console.log(props);
-        
+        super(props);        
         this.state = {
             key: ''
         }
@@ -55,8 +53,8 @@ class List extends Component{
                     </div>
                 </div>
                 {/* inside this fragment - append the renderSubComponent method to the props so we can implement the behaviour
-                 outside the List component */}
-                {this.props.renderSubComponent(this.state.key, filteredArr)}
+                 outside the List component to build the next list */}
+                {this.props.renderSubComponent(this.state.key, filteredArr,this.props.listNumber+1)}
             </>
         );
     }

@@ -1,31 +1,39 @@
 .list-container {
+    height: calc(100% - 10px);
     width: 200px;
-    height: 100%;
 }
 .title {
+    border-bottom: 2px solid lightgray;
+    box-sizing: border-box;
+    font-family: Arial;
+    font-size: 25px;
+    font-weight: 500;
     height: 50px;
     line-height: 50px;
-    text-align: center;
-    border-bottom: 1px solid black;
-    box-sizing: border-box;
+    margin-top: -12px;
+    padding-top: 10px;
+    padding-left: 4%;
+    text-align: left;
 }
 .data-container {
+    box-sizing: border-box;
     height: calc(100% - 50px);
     overflow-y: scroll;
-    /* border: 1px solid red; */
-    box-sizing: border-box;
 }
 .item {
-    height: 50px;
-    padding: 0 10px;
-    line-height: 50px;
+    color: rgb(0,98,255);
     cursor: pointer;
-    white-space: nowrap;
+    font-family: Arial;
+    font-size: 17px;
+    height: 50px;
+    line-height: 50px;
     overflow: hidden;
+    padding: 0 10px;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .selected {
-    background: blue;
+    background: rgb(0, 98, 255);
     border-radius: 10px;
     color: white;
 }

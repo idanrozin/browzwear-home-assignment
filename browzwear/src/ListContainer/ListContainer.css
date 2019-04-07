@@ -1,0 +1,41 @@
+.container {
+    border: 0.1px solid black;
+    border-radius: 18.5px;
+    box-shadow:  0px 0px 16px -1px rgba(0,0,0,0.75);
+    display: flex;
+    height: 380px;
+    margin: auto;
+    width: 1100px;
+}
+
+.map-container {
+    height: calc(95% - 50px);
+    width: 500px;
+}
+
+.map-title {
+    border-bottom: 2px solid lightgray;
+    box-sizing: border-box;
+    font-family: Arial;
+    font-size: 25px;
+    font-weight: 500;
+    height: 50px;
+    line-height: 50px;
+    margin-top: -12px;
+    padding-top: 10px;
+    padding-left: 4%;
+    text-align: left;
+}
+
+.map-data { 
+    height: 100%;
+    position: relative;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    width: 93%;
+}
+
+.map-data > div {
+    height: 94%;
+    width: 96%;
+}
